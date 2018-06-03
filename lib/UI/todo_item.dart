@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
-class TodoItem extends StatelessWidget{
+class TodoItem extends StatefulWidget{
+
+  @override
+  State<StatefulWidget> createState() => new TodoItemState();
+}
+
+class TodoItemState extends State<TodoItem>{
+
+  bool value = false;
   
   @override
   Widget build(BuildContext context){
@@ -8,12 +16,18 @@ class TodoItem extends StatelessWidget{
             child: new Row(
               children: <Widget>[
                 Checkbox(
-                  onChanged: (a) => print('change'),
-                  value: false,
+                  onChanged: (a) => changeCheckBox(a),
+                  value: value,
                 ),
                 Text('texto')
               ],
             ),
           );
+  }
+
+  void changeCheckBox(bool newValue){
+    setState(() {
+      value = newValue;
+    });
   }
 }
