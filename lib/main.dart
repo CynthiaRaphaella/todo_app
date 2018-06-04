@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/UI/todo_list.dart';
+import 'package:todo_app/pages/home_page.dart';
+import 'package:todo_app/pages/create_todo_page.dart';
 
 void main() => runApp(new MyApp());
 
@@ -12,16 +13,10 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("To do!")
-        ),
-        body: TodoList(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => print('a'),
-          child: new Icon(Icons.add),
-        ),
-      )
+      routes: <String, WidgetBuilder>{
+        CreateTodoPage.route: (BuildContext context) => new CreateTodoPage(),
+      },
+      home: HomePage()
     );
   }
 }
