@@ -7,27 +7,45 @@ class TodoItem extends StatefulWidget{
 }
 
 class TodoItemState extends State<TodoItem>{
-
-  bool value = false;
+  final int _animationDuration = 500;
+  double _opacityLevel = 1.0;
+  bool _value = false;
+  FontStyle _fontStyle = FontStyle.normal;
   
   @override
   Widget build(BuildContext context){
-    return Card(
+    return AnimatedOpacity(
+      duration: new Duration(milliseconds: _animationDuration),
+      opacity: _opacityLevel,
+      child: Card(
             child: new Row(
               children: <Widget>[
                 Checkbox(
-                  onChanged: (a) => changeCheckBox(a),
-                  value: value,
+                  onChanged: (v) => _changeCheckBox(v),
+                  value: _value,
                 ),
-                Text('texto')
+                Text('Texto', style: new TextStyle(fontStyle: _fontStyle),)
               ],
             ),
-          );
+          ),
+    );
   }
 
-  void changeCheckBox(bool newValue){
+  _changeCheckBox(bool newValue){
     setState(() {
-      value = newValue;
+      _value = newValue;
+      _changeFontStyle();
+      _changeOpacity();
     });
+  }
+
+  _changeOpacity() {
+    setState(() => _opacityLevel = _opacityLevel == 0.5 ? 1.0 : 0.5);
+  }
+
+  _changeFontStyle() {
+    setState(() => _fontStyle = _fontStyle == FontStyle.normal 
+                    ? FontStyle.italic 
+                    : FontStyle.normal);
   }
 }

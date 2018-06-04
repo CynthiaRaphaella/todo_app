@@ -5,7 +5,7 @@ class TodoList extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Center(
-          child: ListView(//AnimatedListItemBuilder
+          child: ListView(
             children: <Widget>[
               TodoItem(),
               TodoItem()
