@@ -1,8 +1,13 @@
 # todo_app
 
-A new Flutter project.
+Projeto Flutter estilo TODO.
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+- Instalar o Futter(https://flutter.io/) e adicionar o pasta bin no PATH
+- Clonar esse repositório
+- Concluir os passos descritos pelo `flutter doctor`
+- Ir para um nível acima do diretório do repositório e executar o seguinte comando:
+```sh
+$ flutter create -i swift -a kotlin --org com.cynthiaraphaella todo_app
+```
