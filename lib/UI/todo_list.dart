@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/UI/todo_item.dart';
 
-class TodoList extends StatelessWidget{
+class TodoList extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return Center(
+  Widget build(BuildContext context) => Center(
           child: ListView(
-            children: <Widget>[
-              TodoItem(),
-              TodoItem()
-            ],
-          )
-        );
-  }
+        children: <Widget>[TodoItem(), TodoItem()],
+      ));
 }

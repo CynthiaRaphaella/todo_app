@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 
-class TodoItem extends StatefulWidget{
-
+class TodoItem extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new TodoItemState();
+  State<StatefulWidget> createState() => TodoItemState();
 }
 
-class TodoItemState extends State<TodoItem>{
+class TodoItemState extends State<TodoItem> {
   final int _animationDuration = 500;
   double _opacityLevel = 1.0;
   bool _value = false;
   FontStyle _fontStyle = FontStyle.normal;
-  
-  @override
-  Widget build(BuildContext context){
-    return AnimatedOpacity(
-      duration: new Duration(milliseconds: _animationDuration),
-      opacity: _opacityLevel,
-      child: Card(
-            child: new Row(
-              children: <Widget>[
-                Checkbox(
-                  onChanged: (v) => _changeCheckBox(v),
-                  value: _value,
-                ),
-                Text('Texto', style: new TextStyle(fontStyle: _fontStyle),)
-              ],
-            ),
-          ),
-    );
-  }
 
-  _changeCheckBox(bool newValue){
+  @override
+  Widget build(BuildContext context) => AnimatedOpacity(
+        duration: Duration(milliseconds: _animationDuration),
+        opacity: _opacityLevel,
+        child: Card(
+          child: Row(
+            children: <Widget>[
+              Checkbox(
+                onChanged: (v) => _changeCheckBox(v),
+                value: _value,
+              ),
+              Text(
+                'Texto',
+                style: TextStyle(fontStyle: _fontStyle),
+              )
+            ],
+          ),
+        ),
+      );
+
+  _changeCheckBox(bool newValue) {
     setState(() {
       _value = newValue;
       _changeFontStyle();
@@ -44,8 +44,7 @@ class TodoItemState extends State<TodoItem>{
   }
 
   _changeFontStyle() {
-    setState(() => _fontStyle = _fontStyle == FontStyle.normal 
-                    ? FontStyle.italic 
-                    : FontStyle.normal);
+    setState(() => _fontStyle =
+        _fontStyle == FontStyle.normal ? FontStyle.italic : FontStyle.normal);
   }
 }
