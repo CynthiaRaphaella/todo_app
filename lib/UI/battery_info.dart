@@ -15,7 +15,15 @@ class BatteryInfoState extends State<BatteryInfo> {
   @override
   Widget build(BuildContext context) {
     _getBatteryLevel();
-    return Text(_batteryLevel);
+    return Container(
+      padding: EdgeInsets.all(10.0),
+      alignment: Alignment.topRight,
+      child: Tooltip(
+        message: _batteryLevel,
+        child: Icon(Icons.battery_unknown)
+      )
+    );
+    
   }
   
   Future<Null> _getBatteryLevel() async {
